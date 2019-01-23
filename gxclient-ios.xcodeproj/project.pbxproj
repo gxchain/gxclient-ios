@@ -3,13 +3,69 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1DBB802D21F5E867008993B2 /* gxclient_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBB802321F5E866008993B2 /* gxclient_ios.framework */; };
-		1DBB803221F5E867008993B2 /* gxclient_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB803121F5E867008993B2 /* gxclient_iosTests.m */; };
-		1DBB803421F5E867008993B2 /* gxclient_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB802621F5E866008993B2 /* gxclient_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1DBB803E21F5EDD5008993B2 /* GXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB803D21F5EDD5008993B2 /* GXClient.m */; };
+		1DBB804121F5F57A008993B2 /* GXClientSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB803F21F5F57A008993B2 /* GXClientSignatureProvider.h */; };
+		1DBB804421F5F7DE008993B2 /* GXClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804321F5F7DE008993B2 /* GXClient.h */; };
+		1DBB807921F5FAA6008993B2 /* NSDictionary+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB804621F5FAA6008993B2 /* NSDictionary+Expand.m */; };
+		1DBB807A21F5FAA6008993B2 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB804721F5FAA6008993B2 /* NSString+Base64.m */; };
+		1DBB807B21F5FAA6008993B2 /* NSMutableData+ProtoBuff.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804821F5FAA6008993B2 /* NSMutableData+ProtoBuff.h */; };
+		1DBB807C21F5FAA6008993B2 /* NSArray+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB804921F5FAA6008993B2 /* NSArray+Expand.m */; };
+		1DBB807D21F5FAA6008993B2 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804A21F5FAA6008993B2 /* NSData+Base64.h */; };
+		1DBB807E21F5FAA6008993B2 /* NSDictionary+Expand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804B21F5FAA6008993B2 /* NSDictionary+Expand.h */; };
+		1DBB807F21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB804C21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m */; };
+		1DBB808021F5FAA6008993B2 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804D21F5FAA6008993B2 /* NSString+Base64.h */; };
+		1DBB808121F5FAA6008993B2 /* NSArray+Expand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB804E21F5FAA6008993B2 /* NSArray+Expand.h */; };
+		1DBB808221F5FAA6008993B2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB804F21F5FAA6008993B2 /* NSData+Base64.m */; };
+		1DBB808321F5FAA6008993B2 /* GXTransactionBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805221F5FAA6008993B2 /* GXTransactionBuilder.h */; };
+		1DBB808421F5FAA6008993B2 /* GXMemoData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805421F5FAA6008993B2 /* GXMemoData.h */; };
+		1DBB808521F5FAA6008993B2 /* GXAssetAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */; };
+		1DBB808621F5FAA6008993B2 /* GXMemoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB805621F5FAA6008993B2 /* GXMemoData.m */; };
+		1DBB808721F5FAA6008993B2 /* GXAssetAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805721F5FAA6008993B2 /* GXAssetAmount.h */; };
+		1DBB808821F5FAA6008993B2 /* GXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB805921F5FAA6008993B2 /* GXUtil.m */; };
+		1DBB808921F5FAA6008993B2 /* GXUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805A21F5FAA6008993B2 /* GXUtil.h */; };
+		1DBB808A21F5FAA6008993B2 /* GXCallContractOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB805C21F5FAA6008993B2 /* GXCallContractOperation.m */; };
+		1DBB808B21F5FAA6008993B2 /* GXTransferOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805D21F5FAA6008993B2 /* GXTransferOperation.h */; };
+		1DBB808C21F5FAA6008993B2 /* GXBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB805E21F5FAA6008993B2 /* GXBaseOperation.m */; };
+		1DBB808D21F5FAA6008993B2 /* GXCallContractOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB805F21F5FAA6008993B2 /* GXCallContractOperation.h */; };
+		1DBB808E21F5FAA6008993B2 /* GXTransferOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806021F5FAA6008993B2 /* GXTransferOperation.m */; };
+		1DBB808F21F5FAA6008993B2 /* GXBaseOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806121F5FAA6008993B2 /* GXBaseOperation.h */; };
+		1DBB809021F5FAA6008993B2 /* GXTransactionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806221F5FAA6008993B2 /* GXTransactionBuilder.m */; };
+		1DBB809121F5FAA6008993B2 /* GXSerializeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806421F5FAA6008993B2 /* GXSerializeDelegate.h */; };
+		1DBB809221F5FAA6008993B2 /* GXPublicKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806621F5FAA6008993B2 /* GXPublicKey.h */; };
+		1DBB809321F5FAA6008993B2 /* GXPrivateKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806721F5FAA6008993B2 /* GXPrivateKey.h */; };
+		1DBB809421F5FAA6008993B2 /* GXAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806821F5FAA6008993B2 /* GXAES.m */; };
+		1DBB809521F5FAA6008993B2 /* GXPublicKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806921F5FAA6008993B2 /* GXPublicKey.m */; };
+		1DBB809621F5FAA6008993B2 /* GXPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806A21F5FAA6008993B2 /* GXPrivateKey.m */; };
+		1DBB809721F5FAA6008993B2 /* GXAES.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806B21F5FAA6008993B2 /* GXAES.h */; };
+		1DBB809821F5FAA6008993B2 /* BTCCurvePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806D21F5FAA6008993B2 /* BTCCurvePoint.h */; };
+		1DBB809921F5FAA6008993B2 /* BTCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB806E21F5FAA6008993B2 /* BTCData.h */; };
+		1DBB809A21F5FAA6008993B2 /* NSData+BTCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB806F21F5FAA6008993B2 /* NSData+BTCData.m */; };
+		1DBB809B21F5FAA6008993B2 /* BTCBigNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB807021F5FAA6008993B2 /* BTCBigNumber.m */; };
+		1DBB809C21F5FAA6008993B2 /* BTCBase58.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB807121F5FAA6008993B2 /* BTCBase58.h */; };
+		1DBB809D21F5FAA6008993B2 /* NS+BTCBase58.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB807221F5FAA6008993B2 /* NS+BTCBase58.m */; };
+		1DBB809E21F5FAA6008993B2 /* NSData+BTCData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB807321F5FAA6008993B2 /* NSData+BTCData.h */; };
+		1DBB809F21F5FAA6008993B2 /* BTCData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB807421F5FAA6008993B2 /* BTCData.m */; };
+		1DBB80A021F5FAA6008993B2 /* BTCCurvePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB807521F5FAA6008993B2 /* BTCCurvePoint.m */; };
+		1DBB80A121F5FAA6008993B2 /* BTCBigNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB807621F5FAA6008993B2 /* BTCBigNumber.h */; };
+		1DBB80A221F5FAA6008993B2 /* BTCBase58.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB807721F5FAA6008993B2 /* BTCBase58.m */; };
+		1DBB80A321F5FAA6008993B2 /* NS+BTCBase58.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB807821F5FAA6008993B2 /* NS+BTCBase58.h */; };
+		1DBB80A721F5FEE3008993B2 /* GXRPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80A521F5FEE3008993B2 /* GXRPC.h */; };
+		1DBB80A821F5FEE3008993B2 /* GXRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80A621F5FEE3008993B2 /* GXRPC.m */; };
+		1DBB80B021F6C639008993B2 /* gxclient.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1DBB80AF21F6C639008993B2 /* gxclient.bundle */; };
+		1DBB80B121F6C639008993B2 /* gxclient.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1DBB80AF21F6C639008993B2 /* gxclient.bundle */; };
+		1DBB80B321F6CA8F008993B2 /* GXChainConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80B221F6CA8E008993B2 /* GXChainConfig.h */; };
+		1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */; };
+		1DBB80B821F72EDB008993B2 /* NSData+Expand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80B621F72EDB008993B2 /* NSData+Expand.h */; };
+		1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80B721F72EDB008993B2 /* NSData+Expand.m */; };
+		1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */; };
+		1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */; };
+		CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */; };
+		EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +80,70 @@
 
 /* Begin PBXFileReference section */
 		1DBB802321F5E866008993B2 /* gxclient_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gxclient_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DBB802621F5E866008993B2 /* gxclient_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gxclient_ios.h; sourceTree = "<group>"; };
 		1DBB802721F5E866008993B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DBB802C21F5E866008993B2 /* gxclient-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gxclient-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DBB803121F5E867008993B2 /* gxclient_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gxclient_iosTests.m; sourceTree = "<group>"; };
 		1DBB803321F5E867008993B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DBB803D21F5EDD5008993B2 /* GXClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClient.m; sourceTree = "<group>"; };
+		1DBB803F21F5F57A008993B2 /* GXClientSignatureProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXClientSignatureProvider.h; sourceTree = "<group>"; };
+		1DBB804321F5F7DE008993B2 /* GXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXClient.h; sourceTree = "<group>"; };
+		1DBB804621F5FAA6008993B2 /* NSDictionary+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Expand.m"; sourceTree = "<group>"; };
+		1DBB804721F5FAA6008993B2 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		1DBB804821F5FAA6008993B2 /* NSMutableData+ProtoBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+ProtoBuff.h"; sourceTree = "<group>"; };
+		1DBB804921F5FAA6008993B2 /* NSArray+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Expand.m"; sourceTree = "<group>"; };
+		1DBB804A21F5FAA6008993B2 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		1DBB804B21F5FAA6008993B2 /* NSDictionary+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Expand.h"; sourceTree = "<group>"; };
+		1DBB804C21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+ProtoBuff.m"; sourceTree = "<group>"; };
+		1DBB804D21F5FAA6008993B2 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		1DBB804E21F5FAA6008993B2 /* NSArray+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Expand.h"; sourceTree = "<group>"; };
+		1DBB804F21F5FAA6008993B2 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		1DBB805221F5FAA6008993B2 /* GXTransactionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXTransactionBuilder.h; sourceTree = "<group>"; };
+		1DBB805421F5FAA6008993B2 /* GXMemoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXMemoData.h; sourceTree = "<group>"; };
+		1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXAssetAmount.m; sourceTree = "<group>"; };
+		1DBB805621F5FAA6008993B2 /* GXMemoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXMemoData.m; sourceTree = "<group>"; };
+		1DBB805721F5FAA6008993B2 /* GXAssetAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXAssetAmount.h; sourceTree = "<group>"; };
+		1DBB805921F5FAA6008993B2 /* GXUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXUtil.m; sourceTree = "<group>"; };
+		1DBB805A21F5FAA6008993B2 /* GXUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXUtil.h; sourceTree = "<group>"; };
+		1DBB805C21F5FAA6008993B2 /* GXCallContractOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXCallContractOperation.m; sourceTree = "<group>"; };
+		1DBB805D21F5FAA6008993B2 /* GXTransferOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXTransferOperation.h; sourceTree = "<group>"; };
+		1DBB805E21F5FAA6008993B2 /* GXBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXBaseOperation.m; sourceTree = "<group>"; };
+		1DBB805F21F5FAA6008993B2 /* GXCallContractOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXCallContractOperation.h; sourceTree = "<group>"; };
+		1DBB806021F5FAA6008993B2 /* GXTransferOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXTransferOperation.m; sourceTree = "<group>"; };
+		1DBB806121F5FAA6008993B2 /* GXBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXBaseOperation.h; sourceTree = "<group>"; };
+		1DBB806221F5FAA6008993B2 /* GXTransactionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXTransactionBuilder.m; sourceTree = "<group>"; };
+		1DBB806421F5FAA6008993B2 /* GXSerializeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSerializeDelegate.h; sourceTree = "<group>"; };
+		1DBB806621F5FAA6008993B2 /* GXPublicKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXPublicKey.h; sourceTree = "<group>"; };
+		1DBB806721F5FAA6008993B2 /* GXPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXPrivateKey.h; sourceTree = "<group>"; };
+		1DBB806821F5FAA6008993B2 /* GXAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXAES.m; sourceTree = "<group>"; };
+		1DBB806921F5FAA6008993B2 /* GXPublicKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXPublicKey.m; sourceTree = "<group>"; };
+		1DBB806A21F5FAA6008993B2 /* GXPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXPrivateKey.m; sourceTree = "<group>"; };
+		1DBB806B21F5FAA6008993B2 /* GXAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXAES.h; sourceTree = "<group>"; };
+		1DBB806D21F5FAA6008993B2 /* BTCCurvePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCCurvePoint.h; sourceTree = "<group>"; };
+		1DBB806E21F5FAA6008993B2 /* BTCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCData.h; sourceTree = "<group>"; };
+		1DBB806F21F5FAA6008993B2 /* NSData+BTCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BTCData.m"; sourceTree = "<group>"; };
+		1DBB807021F5FAA6008993B2 /* BTCBigNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCBigNumber.m; sourceTree = "<group>"; };
+		1DBB807121F5FAA6008993B2 /* BTCBase58.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCBase58.h; sourceTree = "<group>"; };
+		1DBB807221F5FAA6008993B2 /* NS+BTCBase58.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NS+BTCBase58.m"; sourceTree = "<group>"; };
+		1DBB807321F5FAA6008993B2 /* NSData+BTCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BTCData.h"; sourceTree = "<group>"; };
+		1DBB807421F5FAA6008993B2 /* BTCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCData.m; sourceTree = "<group>"; };
+		1DBB807521F5FAA6008993B2 /* BTCCurvePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCCurvePoint.m; sourceTree = "<group>"; };
+		1DBB807621F5FAA6008993B2 /* BTCBigNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCBigNumber.h; sourceTree = "<group>"; };
+		1DBB807721F5FAA6008993B2 /* BTCBase58.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCBase58.m; sourceTree = "<group>"; };
+		1DBB807821F5FAA6008993B2 /* NS+BTCBase58.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NS+BTCBase58.h"; sourceTree = "<group>"; };
+		1DBB80A521F5FEE3008993B2 /* GXRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXRPC.h; sourceTree = "<group>"; };
+		1DBB80A621F5FEE3008993B2 /* GXRPC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXRPC.m; sourceTree = "<group>"; };
+		1DBB80AF21F6C639008993B2 /* gxclient.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = gxclient.bundle; sourceTree = "<group>"; };
+		1DBB80B221F6CA8E008993B2 /* GXChainConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXChainConfig.h; sourceTree = "<group>"; };
+		1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXRPCTest.m; sourceTree = "<group>"; };
+		1DBB80B621F72EDB008993B2 /* NSData+Expand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Expand.h"; sourceTree = "<group>"; };
+		1DBB80B721F72EDB008993B2 /* NSData+Expand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Expand.m"; sourceTree = "<group>"; };
+		1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientKeyPairAPITest.m; sourceTree = "<group>"; };
+		1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientFaucetAPITest.m; sourceTree = "<group>"; };
+		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E5F70BC9A79EA76DA811FFC /* Pods-gxclient-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B1726AB88CED7EB88D47EC25 /* Pods-gxclient-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.release.xcconfig"; sourceTree = "<group>"; };
+		CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DBB802D21F5E867008993B2 /* gxclient_ios.framework in Frameworks */,
+				CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +173,8 @@
 				1DBB802521F5E866008993B2 /* gxclient-ios */,
 				1DBB803021F5E867008993B2 /* gxclient-iosTests */,
 				1DBB802421F5E866008993B2 /* Products */,
+				B41B8A836144560C64289CF7 /* Pods */,
+				CA88539CCFABEA477D0153D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +190,12 @@
 		1DBB802521F5E866008993B2 /* gxclient-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1DBB802621F5E866008993B2 /* gxclient_ios.h */,
+				1DBB80AF21F6C639008993B2 /* gxclient.bundle */,
+				1DBB804521F5FAA6008993B2 /* category */,
+				1DBB805021F5FAA6008993B2 /* lib */,
+				1DBB804321F5F7DE008993B2 /* GXClient.h */,
 				1DBB802721F5E866008993B2 /* Info.plist */,
+				1DBB803D21F5EDD5008993B2 /* GXClient.m */,
 			);
 			path = "gxclient-ios";
 			sourceTree = "<group>";
@@ -80,10 +203,159 @@
 		1DBB803021F5E867008993B2 /* gxclient-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				1DBB803121F5E867008993B2 /* gxclient_iosTests.m */,
 				1DBB803321F5E867008993B2 /* Info.plist */,
+				1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */,
+				1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */,
+				1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */,
 			);
 			path = "gxclient-iosTests";
+			sourceTree = "<group>";
+		};
+		1DBB804521F5FAA6008993B2 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB804621F5FAA6008993B2 /* NSDictionary+Expand.m */,
+				1DBB804721F5FAA6008993B2 /* NSString+Base64.m */,
+				1DBB804821F5FAA6008993B2 /* NSMutableData+ProtoBuff.h */,
+				1DBB804921F5FAA6008993B2 /* NSArray+Expand.m */,
+				1DBB804A21F5FAA6008993B2 /* NSData+Base64.h */,
+				1DBB804B21F5FAA6008993B2 /* NSDictionary+Expand.h */,
+				1DBB804C21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m */,
+				1DBB804D21F5FAA6008993B2 /* NSString+Base64.h */,
+				1DBB804E21F5FAA6008993B2 /* NSArray+Expand.h */,
+				1DBB804F21F5FAA6008993B2 /* NSData+Base64.m */,
+				1DBB80B621F72EDB008993B2 /* NSData+Expand.h */,
+				1DBB80B721F72EDB008993B2 /* NSData+Expand.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		1DBB805021F5FAA6008993B2 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB80A421F5FED3008993B2 /* rpc */,
+				1DBB806321F5FAA6008993B2 /* delegates */,
+				1DBB805121F5FAA6008993B2 /* chain */,
+				1DBB806521F5FAA6008993B2 /* ecc */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1DBB805121F5FAA6008993B2 /* chain */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB80B221F6CA8E008993B2 /* GXChainConfig.h */,
+				1DBB805221F5FAA6008993B2 /* GXTransactionBuilder.h */,
+				1DBB805321F5FAA6008993B2 /* classes */,
+				1DBB805821F5FAA6008993B2 /* utils */,
+				1DBB805B21F5FAA6008993B2 /* operations */,
+				1DBB806221F5FAA6008993B2 /* GXTransactionBuilder.m */,
+			);
+			path = chain;
+			sourceTree = "<group>";
+		};
+		1DBB805321F5FAA6008993B2 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB805421F5FAA6008993B2 /* GXMemoData.h */,
+				1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */,
+				1DBB805621F5FAA6008993B2 /* GXMemoData.m */,
+				1DBB805721F5FAA6008993B2 /* GXAssetAmount.h */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		1DBB805821F5FAA6008993B2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB805921F5FAA6008993B2 /* GXUtil.m */,
+				1DBB805A21F5FAA6008993B2 /* GXUtil.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		1DBB805B21F5FAA6008993B2 /* operations */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB805C21F5FAA6008993B2 /* GXCallContractOperation.m */,
+				1DBB805D21F5FAA6008993B2 /* GXTransferOperation.h */,
+				1DBB805E21F5FAA6008993B2 /* GXBaseOperation.m */,
+				1DBB805F21F5FAA6008993B2 /* GXCallContractOperation.h */,
+				1DBB806021F5FAA6008993B2 /* GXTransferOperation.m */,
+				1DBB806121F5FAA6008993B2 /* GXBaseOperation.h */,
+			);
+			path = operations;
+			sourceTree = "<group>";
+		};
+		1DBB806321F5FAA6008993B2 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB806421F5FAA6008993B2 /* GXSerializeDelegate.h */,
+				1DBB803F21F5F57A008993B2 /* GXClientSignatureProvider.h */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		1DBB806521F5FAA6008993B2 /* ecc */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB806621F5FAA6008993B2 /* GXPublicKey.h */,
+				1DBB806721F5FAA6008993B2 /* GXPrivateKey.h */,
+				1DBB806821F5FAA6008993B2 /* GXAES.m */,
+				1DBB806921F5FAA6008993B2 /* GXPublicKey.m */,
+				1DBB806A21F5FAA6008993B2 /* GXPrivateKey.m */,
+				1DBB806B21F5FAA6008993B2 /* GXAES.h */,
+				1DBB806C21F5FAA6008993B2 /* vendor */,
+			);
+			path = ecc;
+			sourceTree = "<group>";
+		};
+		1DBB806C21F5FAA6008993B2 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB806D21F5FAA6008993B2 /* BTCCurvePoint.h */,
+				1DBB806E21F5FAA6008993B2 /* BTCData.h */,
+				1DBB806F21F5FAA6008993B2 /* NSData+BTCData.m */,
+				1DBB807021F5FAA6008993B2 /* BTCBigNumber.m */,
+				1DBB807121F5FAA6008993B2 /* BTCBase58.h */,
+				1DBB807221F5FAA6008993B2 /* NS+BTCBase58.m */,
+				1DBB807321F5FAA6008993B2 /* NSData+BTCData.h */,
+				1DBB807421F5FAA6008993B2 /* BTCData.m */,
+				1DBB807521F5FAA6008993B2 /* BTCCurvePoint.m */,
+				1DBB807621F5FAA6008993B2 /* BTCBigNumber.h */,
+				1DBB807721F5FAA6008993B2 /* BTCBase58.m */,
+				1DBB807821F5FAA6008993B2 /* NS+BTCBase58.h */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		1DBB80A421F5FED3008993B2 /* rpc */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB80A521F5FEE3008993B2 /* GXRPC.h */,
+				1DBB80A621F5FEE3008993B2 /* GXRPC.m */,
+			);
+			path = rpc;
+			sourceTree = "<group>";
+		};
+		B41B8A836144560C64289CF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */,
+				B1726AB88CED7EB88D47EC25 /* Pods-gxclient-ios.release.xcconfig */,
+				8E5F70BC9A79EA76DA811FFC /* Pods-gxclient-iosTests.debug.xcconfig */,
+				7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA88539CCFABEA477D0153D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */,
+				CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +365,33 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DBB803421F5E867008993B2 /* gxclient_ios.h in Headers */,
+				1DBB808F21F5FAA6008993B2 /* GXBaseOperation.h in Headers */,
+				1DBB808921F5FAA6008993B2 /* GXUtil.h in Headers */,
+				1DBB808D21F5FAA6008993B2 /* GXCallContractOperation.h in Headers */,
+				1DBB809121F5FAA6008993B2 /* GXSerializeDelegate.h in Headers */,
+				1DBB808321F5FAA6008993B2 /* GXTransactionBuilder.h in Headers */,
+				1DBB807D21F5FAA6008993B2 /* NSData+Base64.h in Headers */,
+				1DBB809921F5FAA6008993B2 /* BTCData.h in Headers */,
+				1DBB80B321F6CA8F008993B2 /* GXChainConfig.h in Headers */,
+				1DBB809821F5FAA6008993B2 /* BTCCurvePoint.h in Headers */,
+				1DBB804421F5F7DE008993B2 /* GXClient.h in Headers */,
+				1DBB808B21F5FAA6008993B2 /* GXTransferOperation.h in Headers */,
+				1DBB807E21F5FAA6008993B2 /* NSDictionary+Expand.h in Headers */,
+				1DBB809721F5FAA6008993B2 /* GXAES.h in Headers */,
+				1DBB808021F5FAA6008993B2 /* NSString+Base64.h in Headers */,
+				1DBB80A121F5FAA6008993B2 /* BTCBigNumber.h in Headers */,
+				1DBB809221F5FAA6008993B2 /* GXPublicKey.h in Headers */,
+				1DBB809321F5FAA6008993B2 /* GXPrivateKey.h in Headers */,
+				1DBB808421F5FAA6008993B2 /* GXMemoData.h in Headers */,
+				1DBB80A321F5FAA6008993B2 /* NS+BTCBase58.h in Headers */,
+				1DBB808721F5FAA6008993B2 /* GXAssetAmount.h in Headers */,
+				1DBB809C21F5FAA6008993B2 /* BTCBase58.h in Headers */,
+				1DBB808121F5FAA6008993B2 /* NSArray+Expand.h in Headers */,
+				1DBB809E21F5FAA6008993B2 /* NSData+BTCData.h in Headers */,
+				1DBB807B21F5FAA6008993B2 /* NSMutableData+ProtoBuff.h in Headers */,
+				1DBB80B821F72EDB008993B2 /* NSData+Expand.h in Headers */,
+				1DBB804121F5F57A008993B2 /* GXClientSignatureProvider.h in Headers */,
+				1DBB80A721F5FEE3008993B2 /* GXRPC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +402,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DBB803721F5E867008993B2 /* Build configuration list for PBXNativeTarget "gxclient-ios" */;
 			buildPhases = (
+				9C59CA02BAE518FA197E9EEA /* [CP] Check Pods Manifest.lock */,
 				1DBB801E21F5E866008993B2 /* Sources */,
 				1DBB801F21F5E866008993B2 /* Frameworks */,
 				1DBB802021F5E866008993B2 /* Headers */,
 				1DBB802121F5E866008993B2 /* Resources */,
+				EF8D20DAA50982422609139A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +422,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DBB803A21F5E867008993B2 /* Build configuration list for PBXNativeTarget "gxclient-iosTests" */;
 			buildPhases = (
+				97C675355BB89880EC9705EB /* [CP] Check Pods Manifest.lock */,
 				1DBB802821F5E866008993B2 /* Sources */,
 				1DBB802921F5E866008993B2 /* Frameworks */,
 				1DBB802A21F5E866008993B2 /* Resources */,
+				5E4856AE6901DB098BF3EABA /* [CP] Embed Pods Frameworks */,
+				768EDAE49FA842388E32B2C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,14 +450,16 @@
 				TargetAttributes = {
 					1DBB802221F5E866008993B2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
 					};
 					1DBB802B21F5E866008993B2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 1DBB801D21F5E866008993B2 /* Build configuration list for PBXProject "gxclient-ios" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -176,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBB80B021F6C639008993B2 /* gxclient.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,16 +489,125 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBB80B121F6C639008993B2 /* gxclient.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E4856AE6901DB098BF3EABA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		768EDAE49FA842388E32B2C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97C675355BB89880EC9705EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gxclient-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C59CA02BAE518FA197E9EEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gxclient-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF8D20DAA50982422609139A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DBB801E21F5E866008993B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */,
+				1DBB809421F5FAA6008993B2 /* GXAES.m in Sources */,
+				1DBB808821F5FAA6008993B2 /* GXUtil.m in Sources */,
+				1DBB80A821F5FEE3008993B2 /* GXRPC.m in Sources */,
+				1DBB807A21F5FAA6008993B2 /* NSString+Base64.m in Sources */,
+				1DBB807F21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m in Sources */,
+				1DBB809021F5FAA6008993B2 /* GXTransactionBuilder.m in Sources */,
+				1DBB808E21F5FAA6008993B2 /* GXTransferOperation.m in Sources */,
+				1DBB807921F5FAA6008993B2 /* NSDictionary+Expand.m in Sources */,
+				1DBB808221F5FAA6008993B2 /* NSData+Base64.m in Sources */,
+				1DBB803E21F5EDD5008993B2 /* GXClient.m in Sources */,
+				1DBB808521F5FAA6008993B2 /* GXAssetAmount.m in Sources */,
+				1DBB808621F5FAA6008993B2 /* GXMemoData.m in Sources */,
+				1DBB808A21F5FAA6008993B2 /* GXCallContractOperation.m in Sources */,
+				1DBB807C21F5FAA6008993B2 /* NSArray+Expand.m in Sources */,
+				1DBB809621F5FAA6008993B2 /* GXPrivateKey.m in Sources */,
+				1DBB809D21F5FAA6008993B2 /* NS+BTCBase58.m in Sources */,
+				1DBB80A221F5FAA6008993B2 /* BTCBase58.m in Sources */,
+				1DBB809A21F5FAA6008993B2 /* NSData+BTCData.m in Sources */,
+				1DBB80A021F5FAA6008993B2 /* BTCCurvePoint.m in Sources */,
+				1DBB809B21F5FAA6008993B2 /* BTCBigNumber.m in Sources */,
+				1DBB808C21F5FAA6008993B2 /* GXBaseOperation.m in Sources */,
+				1DBB809F21F5FAA6008993B2 /* BTCData.m in Sources */,
+				1DBB809521F5FAA6008993B2 /* GXPublicKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +615,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DBB803221F5E867008993B2 /* gxclient_iosTests.m in Sources */,
+				1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */,
+				1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */,
+				1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +750,7 @@
 		};
 		1DBB803821F5E867008993B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -343,11 +761,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "gxclient-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.gxchain.gxclient-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -357,6 +773,7 @@
 		};
 		1DBB803921F5E867008993B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1726AB88CED7EB88D47EC25 /* Pods-gxclient-ios.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -367,11 +784,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "gxclient-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.gxchain.gxclient-ios";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -381,15 +796,12 @@
 		};
 		1DBB803B21F5E867008993B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E5F70BC9A79EA76DA811FFC /* Pods-gxclient-iosTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2TB6W7KUP;
 				INFOPLIST_FILE = "gxclient-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.gxchain.gxclient-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,15 +810,12 @@
 		};
 		1DBB803C21F5E867008993B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2TB6W7KUP;
 				INFOPLIST_FILE = "gxclient-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.gxchain.gxclient-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
