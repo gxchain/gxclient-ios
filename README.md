@@ -26,8 +26,8 @@ A client to interact with gxchain implemented in Objective-C
 -(void)query:(NSString*)method params:(NSArray*)params callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getChainIDWithCallback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getBlock:(NSInteger)height callback:(void(^)(NSError * error, id responseObject)) callback;
--(void)transfer:(NSString*)to memo:(NSString* _Nullable) memo amount:(NSString*)amountAsset feeAsset:(NSString*)feeAsset callback:(void(^)(NSError * error, id responseObject)) callback;
--(void)vote:(NSArray*) accounts feeAsset:(NSString*)feeAsset callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)transfer:(NSString*)to memo:(NSString* _Nullable) memo amount:(NSString*)amountAsset feeAsset:(NSString*)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)vote:(NSArray*) accounts feeAsset:(NSString*)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)broadcast:(NSDictionary*)tx callback:(void(^)(NSError * error, id responseObject)) callback;
 ```
 
