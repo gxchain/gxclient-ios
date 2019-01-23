@@ -13,11 +13,11 @@ A client to interact with gxchain implemented in Objective-C
 ## APIs
 
 - [x] [Keypair API](#keypair-api)
-- [x] Chain API(#chain-api)
-- [x] Faucet API(#faucet-api)
-- [ ] Account API(#account-api)
-- [ ] Asset API(#asset-api)
-- [ ] Contract API(#contract-api)
+- [x] [Chain API](#chain-api)
+- [x] [Faucet API](#faucet-api)
+- [ ] [Account API](#account-api)
+- [ ] [Asset API](#asset-api)
+- [ ] [Contract API](#contract-api)
 
 ### Constructors
 ```Objective-C
