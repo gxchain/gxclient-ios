@@ -27,7 +27,7 @@
 }
 
 - (void)testRegister {
-    XCTestExpectation * expectation = [self expectationWithDescription:@"Register fail exception"];
+    XCTestExpectation * expectation = [self expectationWithDescription:@"Register"];
     [self.client registerAccount:@"test-register-01" activeKey:@"GXC8CJACbLWM3urXynUeqTTqTT7wUR2GZBVpoeP7SeE96qgv1c3pp" ownerKey:nil memoKey:nil callback:^(NSError *error, id responseObject) {
         if(error){
             NSLog(@"Register failed with error: %@",error.localizedDescription);

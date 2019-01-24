@@ -28,7 +28,7 @@
 }
 
 - (void)testQuery {
-    XCTestExpectation * expectation = [self expectationWithDescription:@"Connection Exception"];
+    XCTestExpectation * expectation = [self expectationWithDescription:@"get object"];
     [self.rpc query:@"get_objects" params:@[@[@"2.1.0"]] callback:^(NSError *err, id resp) {
         NSLog(@"%@",resp);
         [expectation fulfill];

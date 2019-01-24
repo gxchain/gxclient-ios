@@ -68,7 +68,6 @@ NSInteger callID = 0;
 }
 
 -(void)broadcast:(NSDictionary *)tx callback:(void (^)(NSError *, id))callback{
-    callback(nil,nil);
     AFHTTPSessionManager* manager =[self manager];
     NSDictionary* para = @{
                            @"jsonrpc":@"2.0",

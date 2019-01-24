@@ -64,6 +64,7 @@
 		1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80B721F72EDB008993B2 /* NSData+Expand.m */; };
 		1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */; };
 		1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */; };
+		1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */; };
 		CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */; };
 		EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */; };
 /* End PBXBuildFile section */
@@ -138,6 +139,7 @@
 		1DBB80B721F72EDB008993B2 /* NSData+Expand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Expand.m"; sourceTree = "<group>"; };
 		1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientKeyPairAPITest.m; sourceTree = "<group>"; };
 		1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientFaucetAPITest.m; sourceTree = "<group>"; };
+		1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXChainAPITest.m; sourceTree = "<group>"; };
 		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */,
 				1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */,
 				1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */,
+				1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */,
 			);
 			path = "gxclient-iosTests";
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */,
 				1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */,
 				1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */,
+				1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
