@@ -71,6 +71,7 @@
 		1DBB80C921FDE32E008993B2 /* GXVoteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */; };
 		1DBB80CC21FEA083008993B2 /* GXNewOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80CA21FEA083008993B2 /* GXNewOptions.h */; };
 		1DBB80CD21FEA083008993B2 /* GXNewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CB21FEA083008993B2 /* GXNewOptions.m */; };
+		1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */; };
 		CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */; };
 		EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */; };
 /* End PBXBuildFile section */
@@ -152,6 +153,7 @@
 		1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXVoteOperation.m; sourceTree = "<group>"; };
 		1DBB80CA21FEA083008993B2 /* GXNewOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXNewOptions.h; sourceTree = "<group>"; };
 		1DBB80CB21FEA083008993B2 /* GXNewOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXNewOptions.m; sourceTree = "<group>"; };
+		1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXContractAPITest.m; sourceTree = "<group>"; };
 		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */,
 				1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */,
 				1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */,
+				1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */,
 			);
 			path = "gxclient-iosTests";
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */,
 				1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */,
 				1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */,
+				1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

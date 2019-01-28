@@ -19,6 +19,7 @@
 #import "GXSafeMutableArray.h"
 #import "GXVoteOperation.h"
 #import "GXNewOptions.h"
+#import "GXCallContractOperation.h"
 
 #define account_not_exist @"account_not_exist"
 #define account_not_exist_code -1
@@ -123,77 +124,53 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
         if(error){
             callback(error,responseObject);
         } else{
-            // get from account
-            [self getAccount:self.account callback:^(NSError *error, id responseObject) {
+            [self getAccounts:@[self.account,to] callback:^(NSError *error, NSArray* accArr) {
                 if(error){
                     callback(error,responseObject);
-                } else if([responseObject objectForKey:@"id"]!=nil){
-                    NSDictionary* fromAccount = responseObject;
-                    // get to account
-                    [self getAccount:to callback:^(NSError *error, id responseObject) {
+                } else{
+                    NSDictionary* fromAccount = [accArr objectAtIndex:0];
+                    NSDictionary* toAccount = [accArr objectAtIndex:1];
+                    float amount = [[[amountAsset componentsSeparatedByString:@" "] objectAtIndex:0] floatValue];
+                    NSString* asset = [[amountAsset componentsSeparatedByString:@" "] objectAtIndex:1];
+                    if(asset == nil){
+                        asset = @"GXC";
+                    }
+                    
+                    NSMutableArray* assets = [NSMutableArray arrayWithObject:asset];
+                    __block BOOL diffrentAsset = NO;
+                    if(feeAsset!=nil && ![feeAsset isEqualToString:@""] && ![feeAsset isEqualToString:asset]){
+                        [assets addObject:feeAsset];
+                        diffrentAsset = YES;
+                    }
+                    
+                    [self getAssets:assets callback:^(NSError *error, NSArray *assets) {
                         if(error){
-                            callback(error,responseObject);
-                        } else if([responseObject objectForKey:@"id"]!=nil){
-                            NSDictionary* toAccount = responseObject;
-                            float amount = [[[amountAsset componentsSeparatedByString:@" "] objectAtIndex:0] floatValue];
-                            NSString* asset = [[amountAsset componentsSeparatedByString:@" "] objectAtIndex:1];
-                            if(asset){
-                                // get asset info
-                                [self getAsset:asset callback:^(NSError *error, id responseObject) {
-                                    if(error){
-                                        callback(error,responseObject);
-                                    } else if([responseObject objectForKey:@"id"]!=nil){
-                                        NSDictionary* asset = responseObject;
-                                        
-                                        GXTransferOperation * op = [[GXTransferOperation alloc] init];
-                                        op.from=[fromAccount objectForKey:@"id"];
-                                        op.to=[toAccount objectForKey:@"id"];
-                                        uint64_t am = (int64_t)(amount*powf(10.0, [[asset objectForKey:@"precision"] floatValue]));
-                                        op.amount=[[GXAssetAmount alloc] initWithAsset:[asset objectForKey:@"id"] amount:am];
-                                        NSString* toMemoKey = [[toAccount objectForKey:@"options"] objectForKey:@"memo_key"];
-                                        op.memo=[GXMemoData memoWithPrivate:self.private_key public:toMemoKey message:memo];
-                                        op.extensions=@[];
-                                        
-                                        if(feeAsset!=nil && [feeAsset isEqualToString:[asset objectForKey:@"symbol"]]){
-                                            op.fee=[[GXAssetAmount alloc] initWithAsset:[asset objectForKey:@"id"] amount:0];
-                                            GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
-                                            [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
-                                            
-                                            [tx processTransaction:^(NSError *err, NSDictionary *tx) {
-                                                callback(err,tx);
-                                            } broadcast:broadcast];
-                                        } else{
-                                            [self getAsset:feeAsset callback:^(NSError *error, id responseObject) {
-                                                if(error){
-                                                    callback(error,nil);
-                                                } else if([responseObject objectForKey:@"id"]){
-                                                    op.fee=[[GXAssetAmount alloc] initWithAsset:[responseObject objectForKey:@"id"] amount:0];
-                                                    GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
-                                                    [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
-                                                    [tx processTransaction:^(NSError *err, NSDictionary *tx) {
-                                                        callback(err,tx);
-                                                    } broadcast:broadcast];
-                                                } else{
-                                                    NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", feeAsset]}];
-                                                    callback(err,nil);
-                                                }
-                                            }];
-                                        }
-                                        
-                                    } else{
-                                        NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", asset]}];
-                                        callback(err,nil);
-                                    }
-                                }];
-                            }
+                            callback(error,assets);
                         } else{
-                            NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", to]}];
-                            callback(err,nil);
+                            NSDictionary* asset = assets[0];
+                            GXTransferOperation * op = [[GXTransferOperation alloc] init];
+                            op.from=[fromAccount objectForKey:@"id"];
+                            op.to=[toAccount objectForKey:@"id"];
+                            uint64_t am = (int64_t)(amount*powf(10.0, [[asset objectForKey:@"precision"] floatValue]));
+                            op.amount=[[GXAssetAmount alloc] initWithAsset:[asset objectForKey:@"id"] amount:am];
+                            NSString* toMemoKey = [[toAccount objectForKey:@"options"] objectForKey:@"memo_key"];
+                            op.memo=[GXMemoData memoWithPrivate:self.private_key public:toMemoKey message:memo];
+                            op.extensions=@[];
+                            
+                            if(diffrentAsset){
+                                op.fee=[[GXAssetAmount alloc] initWithAsset:[assets[1] objectForKey:@"id"] amount:0];
+                            } else{
+                                op.fee=[[GXAssetAmount alloc] initWithAsset:[assets[0] objectForKey:@"id"] amount:0];
+                            }
+                            GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
+                            [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
+                            
+                            [tx processTransaction:^(NSError *err, NSDictionary *tx) {
+                                callback(err,tx);
+                            } broadcast:broadcast];
+                            
                         }
                     }];
-                } else{
-                    NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", self.account]}];
-                    callback(err,nil);
                 }
             }];
         }
@@ -440,12 +417,33 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 }
 
 #pragma mark - Asset API
--(void)getAsset:(NSString*)symbol callback:(void(^)(NSError * error, id responseObject)) callback{
-    [self query:@"lookup_asset_symbols" params:@[@[symbol]] callback:^(NSError *error, id responseObject) {
+-(void) getAsset:(NSString*)symbol callback:(void(^)(NSError * error, id responseObject)) callback{
+    [self getAssets:@[symbol] callback:^(NSError *error, NSArray *assets) {
+        if(error){
+            callback(error,nil);
+        } else{
+            callback(nil,[assets objectAtIndex:0]);
+        }
+    }];
+}
+
+-(void) getAssets:(NSArray*)symbols callback:(void (^)(NSError *, NSArray*))callback{
+    [self query:@"lookup_asset_symbols" params:@[symbols] callback:^(NSError *error, id responseObject) {
         if(error){
             callback(error,responseObject);
         } else{
-            callback(nil,[responseObject objectAtIndex:0]);
+            __block BOOL hasError = NO;
+            [responseObject enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj isEqual:[NSNull null]]) {
+                    *stop = YES;
+                    hasError = YES;
+                    NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"one of the asset in %@ does not exist", symbols]}];
+                    callback(err,nil);
+                }
+            }];
+            if(!hasError){
+                callback(nil,responseObject);
+            }
         }
     }];
 }
@@ -468,8 +466,44 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 
 #pragma mark - Contract API
 
--(void) callContract:(NSString*)contractName method:(NSString*)method params:(NSDictionary*)params amount:(NSString*)amountAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback{
-    // TODO
+-(void) callContract:(NSString*)contractName method:(NSString*)method params:(NSDictionary* _Nullable)params amount:(NSString* _Nullable)amountAsset feeAsset:(NSString* _Nullable)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback{
+    [self getChainID:^(NSError *error, id responseObject) {
+        if(error){
+            callback(error,responseObject);
+        } else{
+            [self getAccounts:@[self.account,contractName] callback:^(NSError *error, NSArray *accounts) {
+                NSData* paramData= BTCDataFromHex([GXUtil serialize_action_data:method params:params abi:[[accounts objectAtIndex:1] objectForKey:@"abi"]]);
+                NSString* fee_asset_symbol = [feeAsset isEqualToString:@""]||feeAsset==nil?@"GXC":feeAsset;
+                NSMutableArray* assets = [NSMutableArray arrayWithObject:fee_asset_symbol];
+                CGFloat amount = 0.0f;
+                __block BOOL hasAmount = amountAsset !=nil && ![amountAsset isEqualToString:@""];
+                if (hasAmount) {
+                    amount = [[amountAsset componentsSeparatedByString:@" "][0] floatValue];
+                    if(![[amountAsset componentsSeparatedByString:@" "][1] isEqualToString:fee_asset_symbol]){
+                        [assets addObject:[amountAsset componentsSeparatedByString:@" "][1]];
+                    }
+                }
+                [self getAssets:assets callback:^(NSError *error, NSArray *assets) {
+                    GXCallContractOperation* op = [[GXCallContractOperation alloc] init];
+                    op.data= paramData;
+                    op.method_name = method;
+                    op.account = [[accounts objectAtIndex:0] objectForKey:@"id"];
+                    op.contract_id = [[accounts objectAtIndex:1] objectForKey:@"id"];
+                    op.fee = [[GXAssetAmount alloc] initWithAsset:[assets[0] objectForKey:@"id"] amount:0];
+                    if (hasAmount) {
+                        NSDictionary* assetInfo = assets.count>1?assets[1]:assets[0];
+                        uint64_t am = (int64_t)(amount*powf(10.0, [[assetInfo objectForKey:@"precision"] floatValue]));
+                        op.amount=[[GXAssetAmount alloc] initWithAsset:[assetInfo objectForKey:@"id"] amount:am];
+                    }
+                    GXTransactionBuilder* tx = [[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
+                    [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
+                    [tx processTransaction:^(NSError *err, NSDictionary *tx) {
+                        callback(err,tx);
+                    } broadcast:broadcast];
+                }];
+            }];
+        }
+    }];
 }
 
 -(void) getContractABI:(NSString*)contract callback:(void(^)(NSError * error, id responseObject)) callback{
