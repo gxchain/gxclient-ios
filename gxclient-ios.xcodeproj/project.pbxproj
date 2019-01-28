@@ -65,6 +65,12 @@
 		1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */; };
 		1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */; };
 		1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */; };
+		1DBB80C421FABD5F008993B2 /* GXSafeMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80C221FABD5F008993B2 /* GXSafeMutableArray.h */; };
+		1DBB80C521FABD5F008993B2 /* GXSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80C321FABD5F008993B2 /* GXSafeMutableArray.m */; };
+		1DBB80C821FDE32E008993B2 /* GXVoteOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80C621FDE32E008993B2 /* GXVoteOperation.h */; };
+		1DBB80C921FDE32E008993B2 /* GXVoteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */; };
+		1DBB80CC21FEA083008993B2 /* GXNewOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80CA21FEA083008993B2 /* GXNewOptions.h */; };
+		1DBB80CD21FEA083008993B2 /* GXNewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CB21FEA083008993B2 /* GXNewOptions.m */; };
 		CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */; };
 		EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */; };
 /* End PBXBuildFile section */
@@ -140,6 +146,12 @@
 		1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientKeyPairAPITest.m; sourceTree = "<group>"; };
 		1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientFaucetAPITest.m; sourceTree = "<group>"; };
 		1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXChainAPITest.m; sourceTree = "<group>"; };
+		1DBB80C221FABD5F008993B2 /* GXSafeMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXSafeMutableArray.h; sourceTree = "<group>"; };
+		1DBB80C321FABD5F008993B2 /* GXSafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXSafeMutableArray.m; sourceTree = "<group>"; };
+		1DBB80C621FDE32E008993B2 /* GXVoteOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXVoteOperation.h; sourceTree = "<group>"; };
+		1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXVoteOperation.m; sourceTree = "<group>"; };
+		1DBB80CA21FEA083008993B2 /* GXNewOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXNewOptions.h; sourceTree = "<group>"; };
+		1DBB80CB21FEA083008993B2 /* GXNewOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXNewOptions.m; sourceTree = "<group>"; };
 		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 		1DBB805021F5FAA6008993B2 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				1DBB80C021FABD3B008993B2 /* vendor */,
 				1DBB80A421F5FED3008993B2 /* rpc */,
 				1DBB806321F5FAA6008993B2 /* delegates */,
 				1DBB805121F5FAA6008993B2 /* chain */,
@@ -264,6 +277,8 @@
 				1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */,
 				1DBB805621F5FAA6008993B2 /* GXMemoData.m */,
 				1DBB805721F5FAA6008993B2 /* GXAssetAmount.h */,
+				1DBB80CA21FEA083008993B2 /* GXNewOptions.h */,
+				1DBB80CB21FEA083008993B2 /* GXNewOptions.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -286,6 +301,8 @@
 				1DBB805F21F5FAA6008993B2 /* GXCallContractOperation.h */,
 				1DBB806021F5FAA6008993B2 /* GXTransferOperation.m */,
 				1DBB806121F5FAA6008993B2 /* GXBaseOperation.h */,
+				1DBB80C621FDE32E008993B2 /* GXVoteOperation.h */,
+				1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -341,6 +358,15 @@
 			path = rpc;
 			sourceTree = "<group>";
 		};
+		1DBB80C021FABD3B008993B2 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				1DBB80C221FABD5F008993B2 /* GXSafeMutableArray.h */,
+				1DBB80C321FABD5F008993B2 /* GXSafeMutableArray.m */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
 		B41B8A836144560C64289CF7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,12 +399,15 @@
 				1DBB808D21F5FAA6008993B2 /* GXCallContractOperation.h in Headers */,
 				1DBB809121F5FAA6008993B2 /* GXSerializeDelegate.h in Headers */,
 				1DBB808321F5FAA6008993B2 /* GXTransactionBuilder.h in Headers */,
+				1DBB80C821FDE32E008993B2 /* GXVoteOperation.h in Headers */,
 				1DBB807D21F5FAA6008993B2 /* NSData+Base64.h in Headers */,
 				1DBB809921F5FAA6008993B2 /* BTCData.h in Headers */,
 				1DBB80B321F6CA8F008993B2 /* GXChainConfig.h in Headers */,
 				1DBB809821F5FAA6008993B2 /* BTCCurvePoint.h in Headers */,
+				1DBB80C421FABD5F008993B2 /* GXSafeMutableArray.h in Headers */,
 				1DBB804421F5F7DE008993B2 /* GXClient.h in Headers */,
 				1DBB808B21F5FAA6008993B2 /* GXTransferOperation.h in Headers */,
+				1DBB80CC21FEA083008993B2 /* GXNewOptions.h in Headers */,
 				1DBB807E21F5FAA6008993B2 /* NSDictionary+Expand.h in Headers */,
 				1DBB809721F5FAA6008993B2 /* GXAES.h in Headers */,
 				1DBB808021F5FAA6008993B2 /* NSString+Base64.h in Headers */,
@@ -590,6 +619,7 @@
 				1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */,
 				1DBB809421F5FAA6008993B2 /* GXAES.m in Sources */,
 				1DBB808821F5FAA6008993B2 /* GXUtil.m in Sources */,
+				1DBB80C921FDE32E008993B2 /* GXVoteOperation.m in Sources */,
 				1DBB80A821F5FEE3008993B2 /* GXRPC.m in Sources */,
 				1DBB807A21F5FAA6008993B2 /* NSString+Base64.m in Sources */,
 				1DBB807F21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m in Sources */,
@@ -608,9 +638,11 @@
 				1DBB809A21F5FAA6008993B2 /* NSData+BTCData.m in Sources */,
 				1DBB80A021F5FAA6008993B2 /* BTCCurvePoint.m in Sources */,
 				1DBB809B21F5FAA6008993B2 /* BTCBigNumber.m in Sources */,
+				1DBB80C521FABD5F008993B2 /* GXSafeMutableArray.m in Sources */,
 				1DBB808C21F5FAA6008993B2 /* GXBaseOperation.m in Sources */,
 				1DBB809F21F5FAA6008993B2 /* BTCData.m in Sources */,
 				1DBB809521F5FAA6008993B2 /* GXPublicKey.m in Sources */,
+				1DBB80CD21FEA083008993B2 /* GXNewOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,7 +706,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -735,7 +767,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

@@ -30,8 +30,11 @@
 -(void)getChainID:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getDynamicGlobalProperties:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getBlock:(NSInteger)height callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)getObject:(NSString*)objectID callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)getObjects:(NSArray*)objectIDs callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)transfer:(NSString*)to memo:(NSString* _Nullable) memo amount:(NSString*)amountAsset feeAsset:(NSString*)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
--(void)vote:(NSArray*) accounts feeAsset:(NSString*)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)getVoteIdsByAccounts:(NSArray*)accountNames callback:(void(^)(NSError * error, NSArray* voteIds )) callback;
+-(void)vote:(NSArray*) accounts proxyAccount:(NSString* _Nullable)proxyAcccount feeAsset:(NSString*)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)broadcast:(NSDictionary*)tx callback:(void(^)(NSError * error, id responseObject)) callback;
 
 #pragma mark - Faucet API
@@ -40,16 +43,13 @@
 -(void)registerAccount:(NSString *)accountName activeKey:(NSString *)activeKey ownerKey:(NSString *)ownerKey memoKey:(NSString *)memoKey callback:(void (^)(NSError * error, id responseObject))callback;
 
 #pragma mark - Account API
+-(void) getAccounts:(NSArray*)accountNames callback:(void(^)(NSError * error, NSArray* accounts)) callback;
 -(void)getAccount:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getAccountBalances:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getAccountByPublicKey:(NSString*)publicKey callback:(void(^)(NSError * error, id responseObject)) callback;
 
 #pragma mark - Asset API
 -(void)getAsset:(NSString*)symbol callback:(void(^)(NSError * error, id responseObject)) callback;
-
-#pragma mark - Object API
--(void)getObject:(NSString*)objectID callback:(void(^)(NSError * error, id responseObject)) callback;
--(void)getObjects:(NSArray*)objectIDs callback:(void(^)(NSError * error, id responseObject)) callback;
 
 #pragma mark - Contract API
 -(void) callContract:(NSString*)contractName method:(NSString*)method params:(NSDictionary*)params amount:(NSString*)amountAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;

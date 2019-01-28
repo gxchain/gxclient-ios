@@ -16,6 +16,14 @@
 #import "GXTransactionBuilder.h"
 #import "GXTransferOperation.h"
 #import "GXMemoData.h"
+#import "GXSafeMutableArray.h"
+#import "GXVoteOperation.h"
+#import "GXNewOptions.h"
+
+#define account_not_exist @"account_not_exist"
+#define account_not_exist_code -1
+#define asset_not_exist @"asset_not_exist"
+#define asset_not_exist_code -2
 
 const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 
@@ -158,30 +166,33 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
                                             [self getAsset:feeAsset callback:^(NSError *error, id responseObject) {
                                                 if(error){
                                                     callback(error,nil);
-                                                } else{
+                                                } else if([responseObject objectForKey:@"id"]){
                                                     op.fee=[[GXAssetAmount alloc] initWithAsset:[responseObject objectForKey:@"id"] amount:0];
                                                     GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
                                                     [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
                                                     [tx processTransaction:^(NSError *err, NSDictionary *tx) {
                                                         callback(err,tx);
                                                     } broadcast:broadcast];
+                                                } else{
+                                                    NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", feeAsset]}];
+                                                    callback(err,nil);
                                                 }
                                             }];
                                         }
                                         
                                     } else{
-                                        NSError* err = [NSError errorWithDomain:@"asset_not_exist" code:-1 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", asset]}];
+                                        NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", asset]}];
                                         callback(err,nil);
                                     }
                                 }];
                             }
                         } else{
-                            NSError* err = [NSError errorWithDomain:@"account_not_found" code:-1 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", to]}];
+                            NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", to]}];
                             callback(err,nil);
                         }
                     }];
                 } else{
-                    NSError* err = [NSError errorWithDomain:@"account_not_found" code:-1 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", self.account]}];
+                    NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", self.account]}];
                     callback(err,nil);
                 }
             }];
@@ -189,8 +200,139 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
     }];
 }
 
--(void)vote:(NSArray *)accounts feeAsset:(NSString *)feeAsset broadcast:(BOOL)broadcast callback:(void (^)(NSError *, id))callback{
-    // TODO
+
+-(void)getVoteIdsByAccounts:(NSArray*)accountNames callback:(void(^)(NSError * error, NSArray* voteIds )) callback{
+    
+    [self getAccounts:accountNames callback:^(NSError *error, NSArray *accArr) {
+        if(error){
+            callback(error,accArr);
+        } else{
+            dispatch_group_t dispatchGroup = dispatch_group_create();
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            GXSafeMutableArray* voteids =[GXSafeMutableArray arrayWithCapacity:accArr.count*2];
+            [accArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                dispatch_group_async(dispatchGroup,queue, ^{
+                    dispatch_group_enter(dispatchGroup);
+                    [self query:@"get_witness_by_account" params:@[accArr[idx][@"id"]] callback:^(NSError *error, id responseObject) {
+                        if([responseObject objectForKey:@"vote_id"]){
+                            [voteids addObject:[responseObject objectForKey:@"vote_id"]];
+                        }
+                        dispatch_group_leave(dispatchGroup);
+                    }];
+                });
+                dispatch_group_async(dispatchGroup,queue, ^{
+                    dispatch_group_enter(dispatchGroup);
+                    [self query:@"get_committee_member_by_account" params:@[accArr[idx][@"id"]] callback:^(NSError *error, id responseObject) {
+                        if([responseObject objectForKey:@"vote_id"]){
+                            [voteids addObject:[responseObject objectForKey:@"vote_id"]];
+                        }
+                        dispatch_group_leave(dispatchGroup);
+                    }];
+                });
+            }];
+            dispatch_notify(dispatchGroup, queue, ^{
+                callback(nil,voteids);
+            });
+        }
+    }];
+}
+
+-(void)vote:(NSArray *)accounts proxyAccount:(NSString* _Nullable)proxyAccount feeAsset:(NSString *)feeAsset broadcast:(BOOL)broadcast callback:(void (^)(NSError *, id))callback{
+    [self getChainID:^(NSError *error, id responseObject) {
+        if(error){
+            callback(error,responseObject);
+        } else{
+            NSMutableArray* arr = [NSMutableArray arrayWithObject:self.account];
+            if (proxyAccount!=nil && [proxyAccount isEqualToString:@""]) {
+                [arr addObject:proxyAccount];
+            }
+            [self getAccounts:arr callback:^(NSError *error, NSArray* accArr) {
+                if(error){
+                    callback(error,accArr);
+                } else {
+                    NSDictionary* myAccount = [accArr objectAtIndex:0];
+                    NSString* account_id = [myAccount objectForKey:@"id"];
+                    NSString* voting_account = [[myAccount objectForKey:@"options"] objectForKey:@"voting_account"];
+                    NSString* memo_key = [[myAccount objectForKey:@"options"] objectForKey:@"memo_key"];
+                    if(voting_account == nil){
+                        voting_account = proxyAccount==nil && [proxyAccount isEqualToString:@""]? @"1.2.5": [accArr[1] objectForKey:@"id"];
+                    }
+                    if(memo_key == nil){
+                        memo_key = @"";
+                    }
+                    
+                    NSString* fee_asset_symbol = feeAsset;
+                    if(fee_asset_symbol ==nil || [fee_asset_symbol isEqualToString:@""]){
+                        fee_asset_symbol = @"GXC";
+                    }
+                    [self getAsset:fee_asset_symbol callback:^(NSError *error, id responseObject) {
+                        if(error){
+                            callback(error, responseObject);
+                        } else if([responseObject objectForKey:@"id"]){
+                            NSString* feeAssetId = [responseObject objectForKey:@"id"];
+                            [self getVoteIdsByAccounts:accounts callback:^(NSError *error, NSArray *voteIds) {
+                                [self getObject:@"2.0.0" callback:^(NSError *error, id responseObject) {
+                                    if(error){
+                                        callback(error, responseObject);
+                                    } else{
+                                        GXVoteOperation* op = [[GXVoteOperation alloc] init];
+                                        GXNewOptions* options = [[GXNewOptions alloc] init];
+                                        __block NSInteger num_witness = 0;
+                                        __block NSInteger num_committee = 0;
+                                        [voteIds enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                            NSArray* vote = [obj componentsSeparatedByString:@":"];
+                                            if([[vote objectAtIndex:0] isEqualToString:@"0"]){
+                                                num_committee+=1;
+                                            }
+                                            if([[vote objectAtIndex:0] isEqualToString:@"1"]){
+                                                num_witness+=1;
+                                            }
+                                        }];
+                                        NSInteger maximum_committee_count = [[[responseObject objectForKey:@"parameters"] objectForKey:@"maximum_committee_count"] integerValue];
+                                        NSInteger maximum_witness_count = [[[responseObject objectForKey:@"parameters"] objectForKey:@"maximum_witness_count"] integerValue];
+                                        options.num_witness = MIN(num_witness, maximum_witness_count);
+                                        options.num_committee = MIN(num_committee, maximum_committee_count);
+                                        options.memo_key = memo_key;
+                                        options.voting_account = voting_account;
+                                        NSArray* origVotes = [[myAccount objectForKey:@"options"] objectForKey:@"votes"];
+                                        NSMutableArray * newVotes = [NSMutableArray arrayWithArray:origVotes];
+                                        [voteIds enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                            if(![newVotes containsObject:obj]){
+                                                [newVotes addObject:obj];
+                                            }
+                                        }];
+                                        options.votes = [newVotes sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                                            NSArray* vote1 = [obj1 componentsSeparatedByString:@":"];
+                                            NSArray* vote2 = [obj2 componentsSeparatedByString:@":"];
+                                            if([vote1[1] integerValue]>[vote2[1] integerValue]){
+                                                return NSOrderedDescending;
+                                            } else if([vote1[1] integerValue]==[vote2[1] integerValue]){
+                                                return NSOrderedSame;
+                                            } else {
+                                                return NSOrderedAscending;
+                                            }
+                                        }];
+                                        op.account = account_id;
+                                        op.fee=[[GXAssetAmount alloc] initWithAsset:feeAssetId amount:0];
+                                        op.options = options;
+                                        op.extensions=@[];
+                                        GXTransactionBuilder* tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
+                                        [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
+                                        [tx processTransaction:^(NSError *err, NSDictionary *tx) {
+                                            callback(err,tx);
+                                        } broadcast:broadcast];
+                                    }
+                                }];
+                            }];
+                        } else{
+                            NSError* err = [NSError errorWithDomain:asset_not_exist code:asset_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"%@ not exist", feeAsset]}];
+                            callback(err,nil);
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
 }
 
 -(void)broadcast:(NSDictionary *)tx callback:(void (^)(NSError *, id))callback{
@@ -238,6 +380,52 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 -(void)getAccount:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback{
     [self query:@"get_account_by_name" params:@[accountName] callback:callback];
 }
+
+-(void) getAccounts:(NSArray*)accountNames callback:(void(^)(NSError * error, NSArray* accounts)) callback{
+    GXSafeMutableArray* accArr = [[GXSafeMutableArray alloc] init];
+    dispatch_group_t dispatchGroup = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    [accountNames enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        dispatch_group_async(dispatchGroup,queue, ^{
+            dispatch_group_enter(dispatchGroup);
+            [self getAccount:obj callback:^(NSError *error, id responseObject) {
+                [accArr addObject:responseObject];
+                dispatch_group_leave(dispatchGroup);
+            }];
+        });
+    }];
+    dispatch_notify(dispatchGroup, queue, (^{
+        __block BOOL hasError = NO;
+        [accArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if([obj objectForKey:@"id"]==nil){
+                NSString* errorMessage = [NSString stringWithFormat:@"%@ not exist",[accountNames objectAtIndex:idx]];
+                NSDictionary* userInfo = @{NSLocalizedDescriptionKey:errorMessage};
+                NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:userInfo];
+                hasError=YES;
+                *stop=YES;
+                callback(err,nil);
+            }
+        }];
+        if(!hasError){
+            NSMutableArray* result = [NSMutableArray array];
+            [accountNames enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString* accName = obj;
+                [accArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if([[obj objectForKey:@"name"] isEqualToString:accName]){
+                        *stop=YES;
+                        [result addObject:obj];
+                    }
+                }];
+            }];
+            callback(nil, result);
+        } else{
+            NSError* err = [NSError errorWithDomain:account_not_exist code:account_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"one of the account in %@ does not exist", accountNames]}];
+            callback(err,nil);
+        }
+        
+    }));
+}
+
 -(void)getAccountBalances:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback{
     [self getAccount:accountName callback:^(NSError *error, id responseObject) {
         if(error){
@@ -307,8 +495,5 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 -(void) getTableObjects:(NSString*)contract table:(NSString*)tableName start:(uint64_t)start limit:(NSInteger)limit reverse:(BOOL)reverse callback:(void(^)(NSError * error, id responseObject)) callback{
     [self query:@"get_table_objects_ex" params:@[contract,tableName,@{@"lower_bound":@(start),@"upper_bound":@(-1),@"limit":@(limit),@"reverse":@(reverse)}] callback:callback];
 }
-
-#pragma mark - Private methods
-
 @end
 
