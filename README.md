@@ -75,10 +75,10 @@ A client to interact with gxchain implemented in Objective-C
 ### Contract API
 
 ```Objective-C
--(void) callContract:(NSString*)contractName method:(NSString*)method params:(NSDictionary*)params amount:(NSString*)amountAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void) callContract:(NSString*)contractName method:(NSString*)method params:(NSDictionary* _Nullable)params amount:(NSString* _Nullable)amountAsset feeAsset:(NSString* _Nullable)feeAsset broadcast:(BOOL)broadcast callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void) getContractABI:(NSString*)contract callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void) getContractTables:(NSString*)contract callback:(void(^)(NSError * error, id responseObject)) callback;
--(void) getTableObjects:(NSString*)contract table:(NSString*)tableName start:(uint64_t)start limit:(NSInteger)limit callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void) getTableObjects:(NSString*)contract table:(NSString*)tableName start:(uint64_t)start limit:(NSInteger)limit reverse:(BOOL)reverse callback:(void(^)(NSError * error, id responseObject)) callback;
 
 ```
 
