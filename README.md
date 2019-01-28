@@ -60,6 +60,7 @@ A client to interact with gxchain implemented in Objective-C
 
 ### Account API
 ```Objective-C
+-(void)getAccounts:(NSArray*)accountNames callback:(void(^)(NSError * error, NSArray* accounts)) callback;
 -(void)getAccount:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getAccountBalances:(NSString*)accountName callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getAccountByPublicKey:(NSString*)publicKey callback:(void(^)(NSError * error, id responseObject)) callback;
@@ -68,6 +69,7 @@ A client to interact with gxchain implemented in Objective-C
 ### Asset API
 ```Objective-C
 -(void)getAsset:(NSString*)symbol callback:(void(^)(NSError * error, id responseObject)) callback;
+-(void)getAssets:(NSArray*)symbols callback:(void(^)(NSError * error, NSArray* assets)) callback;
 ```
 
 ### Contract API
