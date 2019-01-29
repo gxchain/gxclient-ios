@@ -23,7 +23,7 @@
     return [NSString stringWithString:hexString];
 }
 
--(NSString *)binaryString{
+- (NSString *)binaryString{
     static const unsigned char mask = 0x01;
     NSMutableString *str = [NSMutableString stringWithString:
                             @"0          1          2           3\n"

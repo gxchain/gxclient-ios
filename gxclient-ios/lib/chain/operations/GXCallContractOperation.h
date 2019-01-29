@@ -17,7 +17,7 @@ export const call_contract = new Serializer("call_contract", {
     method_name: name_type,
     data: bytes(),
     extensions: set (future_extensions)
-});
+ });
 */
 @interface GXCallContractOperation : GXBaseOperation
 @property (nonatomic,strong) NSString* account;

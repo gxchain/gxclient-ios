@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSData(Expand)
-- (NSString *)binaryString;
+-(NSString *)binaryString;
 -(NSArray *)hexToBitArray;
-- (NSString *)hexString;
+-(NSString *)hexString;
 @end

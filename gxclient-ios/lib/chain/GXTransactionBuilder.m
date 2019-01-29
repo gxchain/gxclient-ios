@@ -91,9 +91,9 @@
         Byte byte[length] = {};
         [head_block_id getBytes:byte range:NSMakeRange(4, 4+length)];
         ref_block_prefix = (uint32_t) (((byte[0] & 0xFF))
-                       | ((byte[1] & 0xFF)<<8)
-                       | ((byte[2] & 0xFF)<<16)
-                       | (byte[3] & 0xFF)<<24);
+                                       | ((byte[1] & 0xFF)<<8)
+                                       | ((byte[2] & 0xFF)<<16)
+                                       | (byte[3] & 0xFF)<<24);
         _self.ref_block_prefix = ref_block_prefix;
         if(callback){
             callback();

@@ -16,9 +16,9 @@
 @property(nonatomic,assign) uint16_t ref_block_num;
 @property(nonatomic,assign) uint32_t ref_block_prefix;
 @property(nonatomic,assign) uint32_t expiration;
-@property (nonatomic,strong) NSArray<GXBaseOperation*>* operations;
+@property(nonatomic,strong) NSArray<GXBaseOperation*>* operations;
 @property(nonatomic,strong) NSArray* extensions;
-@property (nonatomic,strong) NSArray* signatures;
+@property(nonatomic,strong) NSArray* signatures;
 
 -(instancetype)initWithOperations:(NSArray<GXBaseOperation*>*)operations rpc:(GXRPC*)rpc chainID:(NSString*)chainID;
 -(void)processTransaction:(void(^)(NSError *err,NSDictionary* tx))callback broadcast:(BOOL)broadcast;

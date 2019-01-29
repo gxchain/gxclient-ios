@@ -94,14 +94,14 @@ static uint64_t string_to_name( const char* str )
 +(JSContext*)jsContext{
     static dispatch_once_t onceToken;
     static JSContext* instance;
-        dispatch_once(&onceToken, ^{
-            NSBundle* bundle = [NSBundle bundleForClass:[GXUtil class]];
-            NSString * path = [bundle pathForResource:@"gxclient.bundle/tx_serializer.min" ofType:@"js"];
-            NSData * jsData = [[NSData alloc]initWithContentsOfFile:path];
-            NSString * jsCode = [[NSString alloc]initWithData:jsData encoding:NSUTF8StringEncoding];
-            instance=[[JSContext alloc] init];
-            [instance evaluateScript:jsCode];
-        });
+    dispatch_once(&onceToken, ^{
+        NSBundle* bundle = [NSBundle bundleForClass:[GXUtil class]];
+        NSString * path = [bundle pathForResource:@"gxclient.bundle/tx_serializer.min" ofType:@"js"];
+        NSData * jsData = [[NSData alloc]initWithContentsOfFile:path];
+        NSString * jsCode = [[NSString alloc]initWithData:jsData encoding:NSUTF8StringEncoding];
+        instance=[[JSContext alloc] init];
+        [instance evaluateScript:jsCode];
+    });
     
     return instance;
 }

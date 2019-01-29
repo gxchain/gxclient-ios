@@ -335,12 +335,12 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
     }
     NSDictionary* params = @{
                              @"account":@{
-                                  @"name":accountName,
-                                  @"active_key":activeKey,
-                                  @"owner_key":ownerKey?ownerKey:activeKey,
-                                  @"memo_key":memoKey?memoKey:activeKey
-                              }
-    };
+                                     @"name":accountName,
+                                     @"active_key":activeKey,
+                                     @"owner_key":ownerKey?ownerKey:activeKey,
+                                     @"memo_key":memoKey?memoKey:activeKey
+                                     }
+                             };
     [manager POST:[NSString stringWithFormat:@"%@%@",faucetUrl,@"/account/register"] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         callback(nil,responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

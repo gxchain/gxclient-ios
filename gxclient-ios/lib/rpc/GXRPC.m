@@ -49,11 +49,11 @@ NSInteger callID = 0;
 -(void)query:(NSString *)method params:(NSArray *)params callback:(void (^)(NSError *, id))callback{
     AFHTTPSessionManager* manager = [self manager];
     NSDictionary* para = @{
-                             @"jsonrpc":@"2.0",
-                             @"method":method,
-                             @"params":params,
-                             @"id":@(callID++)
-                             };
+                           @"jsonrpc":@"2.0",
+                           @"method":method,
+                           @"params":params,
+                           @"id":@(callID++)
+                           };
     [manager POST:self.entryPoint parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary * err = [responseObject objectForKey:@"error"];
         if(err){

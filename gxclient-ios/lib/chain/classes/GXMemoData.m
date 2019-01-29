@@ -20,7 +20,7 @@ uint64_t unique_nonce_uint64(){
         perror("randgetter");
         exit(-1);
     }
-
+    
     uint64_t value = 0;
     int i;
     for (i=0; i<sizeof(value); i++) {
