@@ -24,11 +24,11 @@ uint64_t unique_nonce_uint64(){
     uint64_t value = 0;
     int i;
     for (i=0; i<sizeof(value); i++) {
-        uint8_t c = fgetc(fp);
+        uint8_t c = (uint8_t)fgetc(fp);
         value |= (c << (8 * i));
     }
     fclose(fp);
-    return (uint64_t)value & 0xFFFFFFFF;
+    return value;
 }
 
 @implementation GXMemoData
@@ -40,7 +40,7 @@ uint64_t unique_nonce_uint64(){
     memo_data.from=fromPublic;
     memo_data.to=publicKey;
     memo_data.nonce=unique_nonce_uint64();
-    memo_data.message = [GXAES encrypt_with_checksum:privKey publicKey:[GXPublicKey fromString:publicKey] nonce:[NSString stringWithFormat:@"%llu",memo_data.nonce] message:message];
+    memo_data.message = [GXAES encrypt_with_checksum:privKey publicKey:[GXPublicKey fromString:publicKey] nonce:[NSString stringWithFormat:@"%llu", memo_data.nonce] message:message];
     return memo_data;
 }
 
@@ -48,8 +48,8 @@ uint64_t unique_nonce_uint64(){
     return @{
              @"from":_from,
              @"to":_to,
-             @"nonce":@(_nonce),
+             @"nonce":[NSString stringWithFormat:@"%llu", _nonce],
              @"message":BTCHexFromData(_message)
-             };
+    };
 }
 @end

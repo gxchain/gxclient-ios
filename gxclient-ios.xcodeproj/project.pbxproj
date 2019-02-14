@@ -232,15 +232,15 @@
 		1DBB804521F5FAA6008993B2 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				1DBB804B21F5FAA6008993B2 /* NSDictionary+Expand.h */,
 				1DBB804621F5FAA6008993B2 /* NSDictionary+Expand.m */,
+				1DBB804D21F5FAA6008993B2 /* NSString+Base64.h */,
 				1DBB804721F5FAA6008993B2 /* NSString+Base64.m */,
 				1DBB804821F5FAA6008993B2 /* NSMutableData+ProtoBuff.h */,
-				1DBB804921F5FAA6008993B2 /* NSArray+Expand.m */,
-				1DBB804A21F5FAA6008993B2 /* NSData+Base64.h */,
-				1DBB804B21F5FAA6008993B2 /* NSDictionary+Expand.h */,
 				1DBB804C21F5FAA6008993B2 /* NSMutableData+ProtoBuff.m */,
-				1DBB804D21F5FAA6008993B2 /* NSString+Base64.h */,
+				1DBB804921F5FAA6008993B2 /* NSArray+Expand.m */,
 				1DBB804E21F5FAA6008993B2 /* NSArray+Expand.h */,
+				1DBB804A21F5FAA6008993B2 /* NSData+Base64.h */,
 				1DBB804F21F5FAA6008993B2 /* NSData+Base64.m */,
 				1DBB80B621F72EDB008993B2 /* NSData+Expand.h */,
 				1DBB80B721F72EDB008993B2 /* NSData+Expand.m */,
@@ -265,10 +265,10 @@
 			children = (
 				1DBB80B221F6CA8E008993B2 /* GXChainConfig.h */,
 				1DBB805221F5FAA6008993B2 /* GXTransactionBuilder.h */,
+				1DBB806221F5FAA6008993B2 /* GXTransactionBuilder.m */,
 				1DBB805321F5FAA6008993B2 /* classes */,
 				1DBB805821F5FAA6008993B2 /* utils */,
 				1DBB805B21F5FAA6008993B2 /* operations */,
-				1DBB806221F5FAA6008993B2 /* GXTransactionBuilder.m */,
 			);
 			path = chain;
 			sourceTree = "<group>";
@@ -277,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				1DBB805421F5FAA6008993B2 /* GXMemoData.h */,
-				1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */,
 				1DBB805621F5FAA6008993B2 /* GXMemoData.m */,
+				1DBB805521F5FAA6008993B2 /* GXAssetAmount.m */,
 				1DBB805721F5FAA6008993B2 /* GXAssetAmount.h */,
 				1DBB80CA21FEA083008993B2 /* GXNewOptions.h */,
 				1DBB80CB21FEA083008993B2 /* GXNewOptions.m */,
