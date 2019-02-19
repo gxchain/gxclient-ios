@@ -527,7 +527,7 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
 }
 
 -(void) getTableObjects:(NSString*)contract table:(NSString*)tableName start:(uint64_t)start limit:(NSInteger)limit reverse:(BOOL)reverse callback:(void(^)(NSError * error, id responseObject)) callback{
-    [self query:@"get_table_objects_ex" params:@[contract,tableName,@{@"lower_bound":@(start),@"upper_bound":@(-1),@"limit":@(limit),@"reverse":@(reverse)}] callback:callback];
+    [self query:@"get_table_rows_ex" params:@[contract,tableName,@{@"lower_bound":@(start),@"upper_bound":@(-1),@"limit":@(limit),@"reverse":@(reverse)}] callback:callback];
 }
 @end
 
