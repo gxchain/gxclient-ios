@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "GXClient.h"
 
-@interface GXClientKeyPairAPITest : XCTestCase
+@interface GXKeyPairAPITest : XCTestCase
 @property (nonatomic,strong) GXClient* client;
 @end
 
-@implementation GXClientKeyPairAPITest
+@implementation GXKeyPairAPITest
 
 - (void)setUp {
     [super setUp];

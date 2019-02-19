@@ -28,8 +28,19 @@
 }
 
 -(void) testCallContract{
-    XCTestExpectation * expectation = [self expectationWithDescription:@"vote"];
+    XCTestExpectation * expectation = [self expectationWithDescription:@"call_contract"];
     [self.client callContract:@"bank" method:@"deposit" params:nil amount:@"10 GXC" feeAsset:@"GXC" broadcast:YES callback:^(NSError *error, id responseObject) {
+        NSLog(@"%@,%@",error,responseObject);
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
+
+-(void) testGetTableObjets{
+    XCTestExpectation * expectation = [self expectationWithDescription:@"get_table_objects"];
+    [self.client getTableObjects:@"redpacket" table:@"packet" start:0 limit:5 reverse:NO callback:^(NSError *error, id responseObject) {
         NSLog(@"%@,%@",error,responseObject);
         [expectation fulfill];
     }];

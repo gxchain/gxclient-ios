@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "GXClient.h"
 
-@interface GXClientFaucetAPITest : XCTestCase
+@interface GXFaucetAPITest : XCTestCase
 @property (nonatomic,strong) GXClient* client;
 @end
 
-@implementation GXClientFaucetAPITest
+@implementation GXFaucetAPITest
 
 - (void)setUp {
     [super setUp];

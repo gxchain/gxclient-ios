@@ -62,8 +62,8 @@
 		1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */; };
 		1DBB80B821F72EDB008993B2 /* NSData+Expand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80B621F72EDB008993B2 /* NSData+Expand.h */; };
 		1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80B721F72EDB008993B2 /* NSData+Expand.m */; };
-		1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */; };
-		1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */; };
+		1DBB80BB21F80B66008993B2 /* GXKeyPairAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BA21F80B66008993B2 /* GXKeyPairAPITest.m */; };
+		1DBB80BD21F8219F008993B2 /* GXFaucetAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BC21F8219F008993B2 /* GXFaucetAPITest.m */; };
 		1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */; };
 		1DBB80C421FABD5F008993B2 /* GXSafeMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80C221FABD5F008993B2 /* GXSafeMutableArray.h */; };
 		1DBB80C521FABD5F008993B2 /* GXSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80C321FABD5F008993B2 /* GXSafeMutableArray.m */; };
@@ -144,8 +144,8 @@
 		1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXRPCTest.m; sourceTree = "<group>"; };
 		1DBB80B621F72EDB008993B2 /* NSData+Expand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Expand.h"; sourceTree = "<group>"; };
 		1DBB80B721F72EDB008993B2 /* NSData+Expand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Expand.m"; sourceTree = "<group>"; };
-		1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientKeyPairAPITest.m; sourceTree = "<group>"; };
-		1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClientFaucetAPITest.m; sourceTree = "<group>"; };
+		1DBB80BA21F80B66008993B2 /* GXKeyPairAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXKeyPairAPITest.m; sourceTree = "<group>"; };
+		1DBB80BC21F8219F008993B2 /* GXFaucetAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXFaucetAPITest.m; sourceTree = "<group>"; };
 		1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXChainAPITest.m; sourceTree = "<group>"; };
 		1DBB80C221FABD5F008993B2 /* GXSafeMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXSafeMutableArray.h; sourceTree = "<group>"; };
 		1DBB80C321FABD5F008993B2 /* GXSafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXSafeMutableArray.m; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 			children = (
 				1DBB803321F5E867008993B2 /* Info.plist */,
 				1DBB80B421F6F2AF008993B2 /* GXRPCTest.m */,
-				1DBB80BA21F80B66008993B2 /* GXClientKeyPairAPITest.m */,
-				1DBB80BC21F8219F008993B2 /* GXClientFaucetAPITest.m */,
+				1DBB80BA21F80B66008993B2 /* GXKeyPairAPITest.m */,
+				1DBB80BC21F8219F008993B2 /* GXFaucetAPITest.m */,
 				1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */,
 				1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */,
 			);
@@ -653,8 +653,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DBB80BD21F8219F008993B2 /* GXClientFaucetAPITest.m in Sources */,
-				1DBB80BB21F80B66008993B2 /* GXClientKeyPairAPITest.m in Sources */,
+				1DBB80BD21F8219F008993B2 /* GXFaucetAPITest.m in Sources */,
+				1DBB80BB21F80B66008993B2 /* GXKeyPairAPITest.m in Sources */,
 				1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */,
 				1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */,
 				1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */,
