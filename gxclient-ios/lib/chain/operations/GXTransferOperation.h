@@ -10,7 +10,7 @@
 #import "GXAssetAmount.h"
 #import "GXMemoData.h"
 
-/*
+/**
 export const transfer = new Serializer ("transfer",{
     fee: asset,
     from: protocol_id_type ("account"),

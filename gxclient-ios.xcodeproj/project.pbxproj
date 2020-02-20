@@ -72,6 +72,9 @@
 		1DBB80CC21FEA083008993B2 /* GXNewOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80CA21FEA083008993B2 /* GXNewOptions.h */; };
 		1DBB80CD21FEA083008993B2 /* GXNewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CB21FEA083008993B2 /* GXNewOptions.m */; };
 		1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */; };
+		637DA45423FE7D920076E3BB /* GXStakingAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 637DA45323FE7D920076E3BB /* GXStakingAPITest.m */; };
+		637DA45723FE82080076E3BB /* GXCreateStakingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */; };
+		637DA45823FE82080076E3BB /* GXCreateStakingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */; };
 		CEDF6AC92AD990291A1DF080 /* libPods-gxclient-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5C3EEA2C30D0062FC76029 /* libPods-gxclient-iosTests.a */; };
 		EE8681BA19251FAAD8B4502C /* libPods-gxclient-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */; };
 /* End PBXBuildFile section */
@@ -155,6 +158,9 @@
 		1DBB80CB21FEA083008993B2 /* GXNewOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXNewOptions.m; sourceTree = "<group>"; };
 		1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXContractAPITest.m; sourceTree = "<group>"; };
 		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		637DA45323FE7D920076E3BB /* GXStakingAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXStakingAPITest.m; sourceTree = "<group>"; };
+		637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCreateStakingOperation.h; sourceTree = "<group>"; };
+		637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCreateStakingOperation.m; sourceTree = "<group>"; };
 		6D1C38DCCBF79BA3559DE9DF /* Pods-gxclient-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7C092E32B28051E084489A53 /* Pods-gxclient-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E5F70BC9A79EA76DA811FFC /* Pods-gxclient-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gxclient-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 				1DBB80BC21F8219F008993B2 /* GXFaucetAPITest.m */,
 				1DBB80BE21F89D3C008993B2 /* GXChainAPITest.m */,
 				1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */,
+				637DA45323FE7D920076E3BB /* GXStakingAPITest.m */,
 			);
 			path = "gxclient-iosTests";
 			sourceTree = "<group>";
@@ -306,6 +313,8 @@
 				1DBB806121F5FAA6008993B2 /* GXBaseOperation.h */,
 				1DBB80C621FDE32E008993B2 /* GXVoteOperation.h */,
 				1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */,
+				637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */,
+				637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				1DBB808921F5FAA6008993B2 /* GXUtil.h in Headers */,
 				1DBB808D21F5FAA6008993B2 /* GXCallContractOperation.h in Headers */,
 				1DBB809121F5FAA6008993B2 /* GXSerializeDelegate.h in Headers */,
+				637DA45723FE82080076E3BB /* GXCreateStakingOperation.h in Headers */,
 				1DBB808321F5FAA6008993B2 /* GXTransactionBuilder.h in Headers */,
 				1DBB80C821FDE32E008993B2 /* GXVoteOperation.h in Headers */,
 				1DBB807D21F5FAA6008993B2 /* NSData+Base64.h in Headers */,
@@ -442,7 +452,6 @@
 				1DBB801F21F5E866008993B2 /* Frameworks */,
 				1DBB802021F5E866008993B2 /* Headers */,
 				1DBB802121F5E866008993B2 /* Resources */,
-				EF8D20DAA50982422609139A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,8 +470,6 @@
 				1DBB802821F5E866008993B2 /* Sources */,
 				1DBB802921F5E866008993B2 /* Frameworks */,
 				1DBB802A21F5E866008993B2 /* Resources */,
-				5E4856AE6901DB098BF3EABA /* [CP] Embed Pods Frameworks */,
-				768EDAE49FA842388E32B2C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -531,36 +538,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5E4856AE6901DB098BF3EABA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		768EDAE49FA842388E32B2C0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-iosTests/Pods-gxclient-iosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		97C675355BB89880EC9705EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,21 +574,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF8D20DAA50982422609139A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gxclient-ios/Pods-gxclient-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -621,6 +583,7 @@
 			files = (
 				1DBB80B921F72EDB008993B2 /* NSData+Expand.m in Sources */,
 				1DBB809421F5FAA6008993B2 /* GXAES.m in Sources */,
+				637DA45823FE82080076E3BB /* GXCreateStakingOperation.m in Sources */,
 				1DBB808821F5FAA6008993B2 /* GXUtil.m in Sources */,
 				1DBB80C921FDE32E008993B2 /* GXVoteOperation.m in Sources */,
 				1DBB80A821F5FEE3008993B2 /* GXRPC.m in Sources */,
@@ -658,6 +621,7 @@
 				1DBB80B521F6F2AF008993B2 /* GXRPCTest.m in Sources */,
 				1DBB80BF21F89D3C008993B2 /* GXChainAPITest.m in Sources */,
 				1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */,
+				637DA45423FE7D920076E3BB /* GXStakingAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import "GXBaseOperation.h"
 
-/*
+/**
 export const call_contract = new Serializer("call_contract", {
     fee: asset,
     account: protocol_id_type ("account"),

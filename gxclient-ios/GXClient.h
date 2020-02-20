@@ -58,6 +58,9 @@
 -(void)getContractTables:(NSString*)contract callback:(void(^)(NSError * error, id responseObject)) callback;
 -(void)getTableObjects:(NSString*)contract table:(NSString*)tableName start:(uint64_t)start limit:(NSInteger)limit reverse:(BOOL)reverse callback:(void(^)(NSError * error, id responseObject)) callback;
 
+#pragma mark - Staking API
+-(void) getStakingPrograms:(void(^)(NSError * error, NSArray* programs)) callback;
+-(void) createStaking:(NSString*)toAccount withAmount:(float)amount stakingProgram:(NSString*)programId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback;
 @end
 
 
