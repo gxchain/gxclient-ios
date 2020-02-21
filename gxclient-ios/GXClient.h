@@ -61,6 +61,8 @@
 #pragma mark - Staking API
 -(void) getStakingPrograms:(void(^)(NSError * error, NSArray* programs)) callback;
 -(void) createStaking:(NSString*)toAccount withAmount:(float)amount stakingProgram:(NSString*)programId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback;
+-(void) updateStaking:(NSString*)toAccount stakingId:(NSString*)stakingId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback;
+-(void) claimStaking:(NSString*)stakingId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback;
 @end
 
 

@@ -21,6 +21,8 @@
 #import "GXNewOptions.h"
 #import "GXCallContractOperation.h"
 #import "GXCreateStakingOperation.h"
+#import "GXUpdateStakingOperation.h"
+#import "GXClaimStakingOperation.h"
 
 #define account_not_exist @"account_not_exist"
 #define account_not_exist_code -1
@@ -594,7 +596,6 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
                                             op.extensions=@[];
                                             GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
                                             [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
-                                            NSLog(@"%@",[tx dictionaryValue]);
                                             [tx processTransaction:^(NSError *err, NSDictionary *tx) {
                                                 callback(err,tx);
                                             } broadcast:broadcast];
@@ -608,6 +609,79 @@ const NSString* DEFAULT_FAUCET=@"https://opengateway.gxb.io";
                 else{
                     NSError* err = [NSError errorWithDomain:staking_program_not_exist code:staking_program_not_exist_code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"no program id %@ available", programId]}];
                                callback(err,nil);
+                }
+            }];
+        }
+    }];
+}
+
+
+-(void) updateStaking:(NSString*)toAccount stakingId:(NSString*)stakingId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback{
+    [self getChainID:^(NSError *error, id responseObject) {
+        if(error){
+            callback(error,responseObject);
+        } else{
+            [self getAssets:@[feeAsset] callback:^(NSError *error, NSArray *assets) {
+                if(error){
+                    callback(error,nil);
+                } else{
+                    [self getAccounts:@[self.account,toAccount] callback:^(NSError *error, NSArray* accArr) {
+                        if(error){
+                            callback(error,responseObject);
+                        } else{
+                            NSDictionary* owner = [accArr objectAtIndex:0];
+                            NSDictionary* trustNode = [accArr objectAtIndex:1];
+                            [self query:@"get_witness_by_account" params:@[trustNode[@"id"]] callback:^(NSError *error, id trustNodeInfo) {
+                                if(error){
+                                    callback(error,nil);
+                                }else{
+                                    GXUpdateStakingOperation * op = [[GXUpdateStakingOperation alloc] init];
+                                    op.fee = [[GXAssetAmount alloc] initWithAsset:[assets[0] objectForKey:@"id"] amount:0];
+                                    op.owner=[owner objectForKey:@"id"];
+                                    op.trust_node=[trustNodeInfo objectForKey:@"id"];
+                                    op.staking_id = stakingId;
+                                    op.extensions=@[];
+                                    GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
+                                    [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
+                                    [tx processTransaction:^(NSError *err, NSDictionary *tx) {
+                                        callback(err,tx);
+                                    } broadcast:broadcast];
+                                }
+                            }];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+}
+
+-(void) claimStaking:(NSString*)stakingId feeAsset:(NSString* _Nullable)feeAsset boradcast:(BOOL) broadcast callback:(void(^)(NSError* error, id responseObject)) callback{
+    [self getChainID:^(NSError *error, id responseObject) {
+        if(error){
+            callback(error,responseObject);
+        } else{
+            [self getAssets:@[feeAsset] callback:^(NSError *error, NSArray *assets) {
+                if(error){
+                    callback(error,nil);
+                } else{
+                    [self getAccount:self.account callback:^(NSError *error, id owner) {
+                       if(error){
+                           callback(error,responseObject);
+                       } else{
+                            GXClaimStakingOperation * op = [[GXClaimStakingOperation alloc] init];
+                            op.fee = [[GXAssetAmount alloc] initWithAsset:[assets[0] objectForKey:@"id"] amount:0];
+                            op.owner=[owner objectForKey:@"id"];
+                            op.staking_id = stakingId;
+                            op.extensions=@[];
+                            GXTransactionBuilder * tx =[[GXTransactionBuilder alloc] initWithOperations:@[op] rpc:self.rpc chainID:self.chain_id];
+                            [tx add_signer:[GXPrivateKey fromWif:self.private_key]];
+                            
+                            [tx processTransaction:^(NSError *err, NSDictionary *tx) {
+                                callback(err,tx);
+                            } broadcast:broadcast];
+                       }
+                    }];
                 }
             }];
         }

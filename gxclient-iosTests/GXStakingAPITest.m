@@ -46,4 +46,26 @@
     }];
 }
 
+- (void)testUpdateStaking {
+    XCTestExpectation * expectation = [self expectationWithDescription:@"create staking"];
+    [self.client updateStaking:@"init1" stakingId:@"1.27.10123" feeAsset:@"GXC" boradcast:YES callback:^(NSError *error, id responseObject) {
+        NSLog(@"%@,%@",error,responseObject);
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
+
+- (void)testClaimStaking {
+    XCTestExpectation * expectation = [self expectationWithDescription:@"create staking"];
+    [self.client claimStaking:@"1.27.10123" feeAsset:@"GXC" boradcast:YES callback:^(NSError *error, id responseObject) {
+        NSLog(@"%@,%@",error,responseObject);
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
+
 @end

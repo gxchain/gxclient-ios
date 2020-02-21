@@ -72,6 +72,10 @@
 		1DBB80CC21FEA083008993B2 /* GXNewOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DBB80CA21FEA083008993B2 /* GXNewOptions.h */; };
 		1DBB80CD21FEA083008993B2 /* GXNewOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CB21FEA083008993B2 /* GXNewOptions.m */; };
 		1DBB80CF21FF7F42008993B2 /* GXContractAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */; };
+		63147C7F23FF786D00990DBB /* GXUpdateStakingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63147C7D23FF786D00990DBB /* GXUpdateStakingOperation.h */; };
+		63147C8023FF786D00990DBB /* GXUpdateStakingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63147C7E23FF786D00990DBB /* GXUpdateStakingOperation.m */; };
+		63147C8323FF7A2200990DBB /* GXClaimStakingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63147C8123FF7A2200990DBB /* GXClaimStakingOperation.h */; };
+		63147C8423FF7A2200990DBB /* GXClaimStakingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63147C8223FF7A2200990DBB /* GXClaimStakingOperation.m */; };
 		637DA45423FE7D920076E3BB /* GXStakingAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 637DA45323FE7D920076E3BB /* GXStakingAPITest.m */; };
 		637DA45723FE82080076E3BB /* GXCreateStakingOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */; };
 		637DA45823FE82080076E3BB /* GXCreateStakingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */; };
@@ -158,6 +162,10 @@
 		1DBB80CB21FEA083008993B2 /* GXNewOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXNewOptions.m; sourceTree = "<group>"; };
 		1DBB80CE21FF7F42008993B2 /* GXContractAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXContractAPITest.m; sourceTree = "<group>"; };
 		4F8BA858CF3D4AB42D4110B6 /* libPods-gxclient-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gxclient-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63147C7D23FF786D00990DBB /* GXUpdateStakingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXUpdateStakingOperation.h; sourceTree = "<group>"; };
+		63147C7E23FF786D00990DBB /* GXUpdateStakingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXUpdateStakingOperation.m; sourceTree = "<group>"; };
+		63147C8123FF7A2200990DBB /* GXClaimStakingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXClaimStakingOperation.h; sourceTree = "<group>"; };
+		63147C8223FF7A2200990DBB /* GXClaimStakingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXClaimStakingOperation.m; sourceTree = "<group>"; };
 		637DA45323FE7D920076E3BB /* GXStakingAPITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXStakingAPITest.m; sourceTree = "<group>"; };
 		637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCreateStakingOperation.h; sourceTree = "<group>"; };
 		637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCreateStakingOperation.m; sourceTree = "<group>"; };
@@ -315,6 +323,10 @@
 				1DBB80C721FDE32E008993B2 /* GXVoteOperation.m */,
 				637DA45523FE82080076E3BB /* GXCreateStakingOperation.h */,
 				637DA45623FE82080076E3BB /* GXCreateStakingOperation.m */,
+				63147C7D23FF786D00990DBB /* GXUpdateStakingOperation.h */,
+				63147C7E23FF786D00990DBB /* GXUpdateStakingOperation.m */,
+				63147C8123FF7A2200990DBB /* GXClaimStakingOperation.h */,
+				63147C8223FF7A2200990DBB /* GXClaimStakingOperation.m */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -414,6 +426,7 @@
 				1DBB808321F5FAA6008993B2 /* GXTransactionBuilder.h in Headers */,
 				1DBB80C821FDE32E008993B2 /* GXVoteOperation.h in Headers */,
 				1DBB807D21F5FAA6008993B2 /* NSData+Base64.h in Headers */,
+				63147C8323FF7A2200990DBB /* GXClaimStakingOperation.h in Headers */,
 				1DBB809921F5FAA6008993B2 /* BTCData.h in Headers */,
 				1DBB80B321F6CA8F008993B2 /* GXChainConfig.h in Headers */,
 				1DBB809821F5FAA6008993B2 /* BTCCurvePoint.h in Headers */,
@@ -426,6 +439,7 @@
 				1DBB808021F5FAA6008993B2 /* NSString+Base64.h in Headers */,
 				1DBB80A121F5FAA6008993B2 /* BTCBigNumber.h in Headers */,
 				1DBB809221F5FAA6008993B2 /* GXPublicKey.h in Headers */,
+				63147C7F23FF786D00990DBB /* GXUpdateStakingOperation.h in Headers */,
 				1DBB809321F5FAA6008993B2 /* GXPrivateKey.h in Headers */,
 				1DBB808421F5FAA6008993B2 /* GXMemoData.h in Headers */,
 				1DBB80A321F5FAA6008993B2 /* NS+BTCBase58.h in Headers */,
@@ -593,10 +607,12 @@
 				1DBB808E21F5FAA6008993B2 /* GXTransferOperation.m in Sources */,
 				1DBB807921F5FAA6008993B2 /* NSDictionary+Expand.m in Sources */,
 				1DBB808221F5FAA6008993B2 /* NSData+Base64.m in Sources */,
+				63147C8023FF786D00990DBB /* GXUpdateStakingOperation.m in Sources */,
 				1DBB803E21F5EDD5008993B2 /* GXClient.m in Sources */,
 				1DBB808521F5FAA6008993B2 /* GXAssetAmount.m in Sources */,
 				1DBB808621F5FAA6008993B2 /* GXMemoData.m in Sources */,
 				1DBB808A21F5FAA6008993B2 /* GXCallContractOperation.m in Sources */,
+				63147C8423FF7A2200990DBB /* GXClaimStakingOperation.m in Sources */,
 				1DBB807C21F5FAA6008993B2 /* NSArray+Expand.m in Sources */,
 				1DBB809621F5FAA6008993B2 /* GXPrivateKey.m in Sources */,
 				1DBB809D21F5FAA6008993B2 /* NS+BTCBase58.m in Sources */,
